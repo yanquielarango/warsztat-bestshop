@@ -1,0 +1,30 @@
+@use '../settings/color';
+
+.footer { 
+    box-shadow: 0 -5px 40px #00000029;
+    padding: 1.3rem 0;
+
+&__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+}
+
+&__description { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+
+span { 
+    font-size: .73rem; 
+    color: color.$color-grey;
+    margin-top: 1rem;
+}
+
+&__media a:first-of-type { 
+    margin-right: 1.5rem;;
+}
+
+
+}

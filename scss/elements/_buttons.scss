@@ -1,0 +1,28 @@
+    @use '../settings/color';
+    @use '../settings/btn';
+
+.btn {
+    color: #fff;
+    font-weight: bold;
+    border-radius: btn.$border-radius;
+    padding: 15px 55px;
+    display: inline-block;
+    border: none;
+
+    &--primary {
+        background-color: color.$color-primary;
+        box-shadow: 3px 10px 14px color.$color-primary-shadow;
+    }
+
+    &--redish {
+        background-color: color.$color-redish;
+    }
+
+    &--green {
+        background-color: color.$color-green;
+    }
+
+    &--large {
+        padding: 1.2rem 9.68rem
+    }
+  }

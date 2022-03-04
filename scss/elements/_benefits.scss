@@ -1,0 +1,223 @@
+@use '../settings/color';
+@use '../settings/mixins';
+
+%text {
+    box-sizing: content-box;
+    max-width: 415px;
+    margin: 90px 36px;
+    @include mixins.tablet {
+        margin: 30px 0px;
+        max-width: none;
+    }
+}
+
+%after {
+    content: "";
+    width: 332px;
+    height: 4px;   
+    display: block;
+    margin-top: 50px;
+}
+
+
+.benefits {
+    background-color: color.$color-light-grey;
+    padding: 80px 0;
+
+    @include  mixins.tablet {
+        padding: 50px 0;
+    }
+
+    &__container {
+        padding: 0 100px;
+
+        @include mixins.tablet{
+            padding: 0 20px;
+        }
+    }
+
+    &__single {
+        background-color: color.$color-white;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        align-items: flex-end;
+        border-radius: 7px;
+        border: 1px solid #E8E9ED; 
+
+        @include mixins.tablet {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 0px 20px;
+        }
+
+      
+        }
+        .benefits--macbook {
+            
+
+            .benefits__text {
+                @extend %text;       
+               
+        
+                &::after {
+                    @extend %after;
+                    background-color: color.$color-redish;
+
+                    @include mixins.tablet {
+                        display: none;
+                    }
+                }
+            }
+            .benefits__image {
+                margin-right:120px;
+                margin-bottom: 40px;
+                position: relative;
+
+                @include mixins.tablet {
+                    margin: 40px 0 0;
+                    
+                }
+                
+                &::before {
+                    content: "";
+                    width: 170px;
+                    height: 170px;
+                    background-color: color.$color-redish;
+                    display: block;
+                    border-radius: 20px;
+                    position: absolute;
+                    right: 0;
+                    top: -40px;
+                    transform: rotate(45deg);
+
+                    @include mixins.tablet {
+                        width: 100px;
+                        height: 100px;
+                        right: -10px;
+                        top: -18px;
+                        border-radius: 15px;
+                      }
+                }
+
+                img {
+                    width: 420px;
+                    height: auto;
+                    position: relative;
+                    z-index: 2; 
+
+                    @include mixins.tablet {
+                        width: 220px;
+                      }
+                }
+            }
+
+    
+    }
+
+    &--movil {
+        flex-direction: row-reverse;
+        padding: 0 20px 0 50px;
+
+        @include mixins.tablet {
+            flex-direction: column-reverse;
+        }
+
+        .benefits__text {
+            @extend %text;
+    
+            &::after {
+                @extend %after;
+                background-color: color.$color-primary;
+
+                @include mixins.tablet {
+                    display: none;
+                }
+            }
+        }
+
+        .benefits__image {
+            position: relative;
+            img {
+                width: 420px;
+                height: auto;
+                position: relative;
+                z-index: 2; 
+
+                @include mixins.tablet {
+                    width: 170px;
+                  }
+            }
+
+            @include mixins.tablet {
+                margin-top: 30px;
+            }
+
+            &::before {
+                content: " ";
+                display: block;
+                width: 330px;
+                height: 330px;
+                background-color: color.$color-primary;
+                border-radius: 50%;
+                position: absolute;
+                top: -2.5rem;
+                left: 0;
+
+                @include mixins.tablet {
+                    width: 130px;
+                    height: 130px;
+                    top: -15px;
+                }
+            }
+        }
+    }
+
+
+
+    &__description {
+        margin-top: 30px;
+        line-height: 1.375rem;
+    }
+
+    &__separated {
+        display: flex;
+        gap: 50px; 
+
+        @include mixins.tablet {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        > div {
+            margin-bottom: 0;            
+        }
+
+        .benefits--alone {
+            flex-basis: 60%   ;    
+
+            .benefits__text {
+                @extend %text;
+            
+            }
+        }
+
+        .benefits--image {
+            background: color.$color-green;
+            display: flex;
+            flex-basis:40%;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            
+           
+            
+            img {
+                width: 290px;
+                height:auto;
+                margin-top: 55px;
+            }
+        }
+    }
+
+}

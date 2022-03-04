@@ -1,0 +1,129 @@
+@use "../settings/color";
+@use "../settings/mixins";
+
+
+.header {
+  height: 70px;
+  box-shadow: 0 3px 6px #00000029;
+
+  width: 100%;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav {
+    &__element {
+      padding: 0 26px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    &__link {
+      color: color.$color-grey;
+      font-weight: bold;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      padding: 8px 15px;
+      border-radius: 5px;
+      // border-bottom: 4px solid transparent;
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: color.$color-black;
+        // border-color: color.$color-primary;
+        background-color: lighten(color.$color-primary, 30%);
+      }
+    }
+  }
+
+  nav &__nav {
+    display: flex;
+
+    @include mixins.mobile {
+      position: absolute;
+      left: 0;
+      top: 70px;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      padding: 0 22px;
+
+      max-height: 0px;
+      overflow: hidden;
+      letter-spacing: 0.2rem;
+
+      //  visibility: hidden;
+      transition: all 0.8s ease;
+      box-shadow: 0 3px 6px #00000029;
+      height: 150px;
+
+      &.nav--show {
+        // visibility: visible;
+        max-height: 200px;
+      }
+
+      .nav__element {
+        padding: 0;
+      }
+
+      .nav__link {
+        display: block;
+        padding: 10px 10px;
+        border-bottom: none;
+
+        &:hover {
+          border: 0;
+          border-bottom: 0;
+          background-color: transparent;
+          
+        }
+      }
+    }
+  }
+
+  .menu {
+    &__toggle {
+      display: none;
+      background-color: color.$color-white;
+      border: none;
+
+      @include mixins.mobile {
+        display: block;
+      }
+
+      span {
+        width: 1.5rem;
+        height: 0.2rem;
+        display: block;
+        margin-bottom: 3px;
+        background-color: color.$color-primary;
+        transition: 0.3s all ease-in-out;
+        border-radius: 5px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.nav--open {
+  span {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(2px, 7px);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(2px, -7px);
+    }
+  }
+}

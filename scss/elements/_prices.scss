@@ -1,0 +1,222 @@
+@use '../settings/mixins';
+@use '../settings/color';
+@use '../settings/fonts';
+
+%box {
+    width: 340px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+%btn {
+  position: relative;  
+  font-size: 0.8125rem;
+  
+}
+
+%prices {
+    font-size: 2.875rem;
+    font-family: fonts.$font-open-sans;
+    font-weight: 300;
+    margin-top: 25px;
+}
+
+%item {
+    content: "";
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    margin-right: 10px;
+    background-image: url("../../assets//Ckechmark-1.svg");
+    
+}
+
+.pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 90px  auto;
+
+    @include mixins.notebook {
+        margin: 3.125rem  auto;
+    }
+
+    &__boxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3.5rem;
+        gap: 2rem;
+
+        @include mixins.notebook {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    &__box {
+        @extend %box;
+       
+
+        @include mixins.notebook {
+            width: 100%;
+            max-width: 370px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            justify-content: center;
+            padding: 25px 10px 0 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+              }
+
+        }
+
+        
+
+    // Basic 
+        
+    &--simple {
+        border: 1px solid color.$color-redish;
+        
+        .pricing__price {
+            margin-bottom: 30px;
+            color: color.$color-redish;
+    
+            @include mixins.notebook {
+              margin-bottom: 0;
+            }
+          }
+
+          .btn--redish {
+            @extend %btn;
+            bottom: -20px;
+          }
+    }
+        
+
+      // Profesional 
+
+        &--profesional {
+            border: 1px solid color.$color-primary;
+            width: 400px;
+            padding: 1.3rem 0;
+            margin: 0 40px;
+            box-shadow: 5px 1px 27px color.$color-primary-shadow;
+
+            
+            @include mixins.notebook {
+                max-width: 400px;
+                width: 100%;
+                margin: 0 0 50px 0;
+              }
+
+              .pricing {
+                  
+                &__type {
+                  font-size: 1.2rem;
+                }
+        
+                &__item {
+                  margin-bottom: 20px;
+                }
+
+                &__price {
+                    color: color.$color-primary;
+                }
+              } 
+
+            .btn--primary {
+              @extend %btn ;
+              bottom: -40px;
+            }
+        
+        }
+
+        // Premium
+
+        &--premium {
+            border: 1px solid color.$color-green;
+
+        .pricing__price {
+            color: color.$color-green;
+        }
+
+        .btn--green {
+          @extend %btn;
+          bottom: -20px;
+        }
+           
+        }
+        
+    
+    }
+
+    &__description {
+        margin-top: 34px;
+        margin-bottom: 60px;
+        text-align: center;
+
+    @include mixins.notebook {
+        width: 50%;
+        margin: 0;
+    } 
+    }
+
+    &__type {
+        font-size: 1.25rem;
+        font-family: fonts.$font-raleway;
+        font-weight: 700;
+    }
+
+    &__price {
+        @extend %prices;       
+    }
+
+    &__offer {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 0.75rem;
+        font-family: fonts.$font-raleway;
+        font-weight: 700;
+    }
+
+    &__items {
+        text-align: center;
+    
+        @include mixins.notebook {
+          width: 50%;
+          text-align: left;
+        }
+      }    
+
+    
+  &__item {
+    font-size: 15px;
+    margin-bottom: 20px;
+
+    @include mixins.notebook {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &::before {
+        @extend %item;
+      }
+
+      
+  
+   &--close::before {
+       background-image: url("../../assets//Close.svg");
+       background-repeat: no-repeat;
+   } 
+
+  }
+
+}

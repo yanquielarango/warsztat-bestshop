@@ -1,0 +1,47 @@
+@use '../settings/mixins';
+@use '../settings/fonts';
+
+
+.section__open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100hw - 70px);
+
+  &__content {
+    margin-top: 100px;
+    text-align: center;
+
+    @include mixins.mobile {
+      margin-top: 100px;
+    }
+  }
+
+  &--title {
+    font-size: 3rem;
+    font-family: fonts.$font-raleway;
+    
+  }
+
+  &--description {
+    margin: 1.2rem 0 2.375rem 0;
+
+    @include mixins.mobile {
+      padding: 0 4.375rem;
+    }
+  }
+
+  &--image {
+    width: 100%;
+    height: auto;
+  }
+  
+  @include mixins.mobile {
+    .btn {
+      margin: 0 15px;
+      padding: 16px 0;
+      display: block;
+    }
+  }
+
+}

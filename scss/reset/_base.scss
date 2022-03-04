@@ -1,0 +1,50 @@
+@use "../settings/fonts";
+@use "../settings/color";
+@use "../settings/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: fonts.$font-open-sans;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-family: fonts.$font-raleway;
+  font-size: 2.2rem;
+}
+
+.container {
+  width: 1352px;
+  margin: 0 auto;
+
+  @include mixins.notebook {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  // @include mixins.notebook {
+  //   width: 100%;
+  //   padding: 0 15px;
+  // }
+}
+
+.logo {
+  font-family: fonts.$font-raleway;
+  color: color.$color-primary;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+// img {
+//   width: 100%;
+//   vertical-align: middle;
+// }

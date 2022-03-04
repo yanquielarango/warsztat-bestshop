@@ -1,0 +1,106 @@
+@use '../settings//mixins';
+@use '../settings/color';
+@use '../settings/fonts';
+
+.statistics {
+    margin-top: 100px;
+
+    @include mixins.mobile {
+        margin-top: 50px;
+      }
+    
+
+    &__title {
+        text-align: center;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        margin: 100px  auto 100px;
+        max-width: 750px;
+
+        @include mixins.mobile {
+            margin: 35px aut0 50px;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+
+    &__single {
+        max-width: 150px;
+        font-family: fonts.$font-raleway;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        @include mixins.mobile {
+            margin-bottom: 30px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &:nth-child(1) {
+            .statistics__circle {
+                background-color: color.$color-redish;
+            }
+
+            .statistics__image {
+                top: 0;
+                left: 35px;
+                
+            }
+        }
+
+        &:nth-child(2) {
+            .statistics__circle {
+                background-color: color.$color-primary;
+            }
+
+            .statistics__image {
+                top: 15px;
+                left: 35px;
+                width: 100%
+            }
+        }
+
+        &:nth-child(3) {
+            .statistics__circle {
+                background-color: color.$color-green;
+            }
+
+            .statistics__image {
+                top: 10px;
+                left: 40px;
+                
+            }
+        }
+    }
+
+    &__circle {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        position: relative;
+    }
+
+    &__image {
+        position: absolute;
+        width: 55px
+    }
+
+    &__number {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: .8rem;
+        letter-spacing: 0.156rem;
+    }
+
+    &__description {
+        color: color.$color-grey;
+        margin-top: 1rem;
+    }
+}
